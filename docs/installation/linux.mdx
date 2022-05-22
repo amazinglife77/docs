@@ -49,6 +49,23 @@ Raspberry Pi 1 (A, B, A+, B+, Zero, Zero W) müssen die [Manuelle Installation](
     curl -1sLf 'https://dl.cloudsmith.io/public/evcc/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/evcc-stable.list
     ```
     </TabItem>
+  
+  
+  <TabItem value="Nightly" label="Nightly">
+    Da https://dl.cloudsmith.io/public/evcc/stable/debian.deb.txt fehlerhaft ist (Datum: 22.05.2022), muss die Datei /etc/apt/sources.list.d/evcc-stable.list wie folgt korrigiert werden.
+     Ersetze folgende Zeilen:
+deb [signed-by=/usr/share/keyrings/evcc-stable-archive-keyring.gpg] https://dl.cloudsmith.io/public/evcc/stable/deb/debian any-version main
+
+deb-src [signed-by=/usr/share/keyrings/evcc-stable-archive-keyring.gpg] https://dl.cloudsmith.io/public/evcc/stable/deb/debian any-version main
+
+durch diese Zeilen:
+
+deb [signed-by=/etc/apt/trusted.gpg.d/evcc-stable.asc] https://dl.cloudsmith.io/public/evcc/stable/deb/debian any-version main
+
+deb-src [signed-by=/etc/apt/trusted.gpg.d/evcc-stable.asc] https://dl.cloudsmith.io/public/evcc/stable/deb/debian any-version main
+    </TabItem>
+  
+  
     <TabItem value="Nightly" label="Nightly">
     Bis zu tägliche Aktualisierung mit dem neuesten Programmcode
 
